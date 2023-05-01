@@ -84,9 +84,9 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 
-/* kodlar buraya */
+console.log(bircumle);
 
 
 
@@ -104,9 +104,12 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
-}
+function cumlelereDonustur(cumlelerArr, ayrac = ",") {
+	const result = cumlelerArr.map((kelimeler) => kelimeler.join(ayrac));
+	return result;
+	} 
+	
+
 
 
 
@@ -120,17 +123,24 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
-}
-
+function paragrafOlustur(cumleler, cumleKur, cumlelereDonustur) {
+	const cumleDizisi = cumlelereDonustur(cumleler, " ");
+	const anahtarlar = [1, 3, 5, 7, 9];
+	const cumleKurParametreleri = anahtarlar.map((anahtar) => cumleDizisi[anahtar]);
+	const paragraf = cumleKur(...cumleKurParametreleri);
+	
+	return paragraf;
+	}
+	
+   
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
+meyveler.pop();
+meyveler.shift();
 
 
 
@@ -140,7 +150,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
 */
 //3b çözümü
-/* kodlar buraya */
+sebzeler.push("🦔")
+sebzeler.unshift("🐇")
 
 
 
@@ -154,7 +165,7 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
+var manav = meyveler.concat(sebzeler);
 
 
 
@@ -170,8 +181,14 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+function emojileriDonustur(mesaj, emojiler){
+	let result = mesaj;
+	for (let emojiKey in emojiler) {
+		result = result.replaceAll(emojiKey.toLowerCase(), emojiler[emojiKey])
+		.replaceAll(emojiKey.toUpperCase(), emojiler[emojiKey]);
+	}
+	return result;
+
 
 }
 
